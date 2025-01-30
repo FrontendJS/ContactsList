@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+</head>
+<body>
+    <h1>Random User Generator</h1>
+    <pre id="output">Loading...</pre>
+
+    <script>
+        // API endpoint
+        const url = "https://randomuser.me/api/";
+
+        // Parameters
+        const params = {
+            results: 50,
+            inc: "login,name,gender,location,email,phone,nat,picture",
+            noinfo: true
+        };
+
+        // Fetch data
+        fetch(`${url}?${new URLSearchParams(params)}`)
+            .then(response => response.json())
+            .then(data => {
+                const users = data.results.map((user, index) => ({
+                    id: index + 1,
+                    username: user.login.username,
+                    firstname: user.name.first,
+                    lastname: user.name.last,
+                    gender: user.gender,
+                    country: user.location.country,
+                    state: user.location.state,
+                    city: user.location.city,
+                    email: user.email,
+                    phone: user.phone,
+                    nat: user.nat,
+                    picture: {
+                        large: user.picture.large,
+                        medium: user.picture.medium,
+                        thumbnail: user.picture.thumbnail
+                    }
+                }));
+
+                // Display the data in the pre tag
+                document.getElementById('output').textContent = JSON.stringify(users, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('output').textContent = `Error: ${error.message}`;
+            });
+    </script>
+</body>
+</html>
