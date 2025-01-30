@@ -5,6 +5,7 @@ type AgreementProps = {
   description: string;
   agree: () => void;
   cancel: () => void;
+  
 };
 
 const Agreement: React.FC<AgreementProps> = ({ title, description, agree, cancel }) => {

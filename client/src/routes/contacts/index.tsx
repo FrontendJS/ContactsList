@@ -3,10 +3,10 @@ import { createFileRoute } from '@tanstack/react-router';
 import UserCardEditable from '../../components/userCardEditable';
 
 export const Route = createFileRoute('/contacts/')({
-  component: EditContactComponent,
+  component: AddContactComponent,
 });
 
-function EditContactComponent() {
+function AddContactComponent() {
   return (
     <div>
       <UserCardEditable

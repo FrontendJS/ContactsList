@@ -40,6 +40,7 @@ const UserCardEditable: React.FC<UserCardProps> = ({
   const method: HttpMethod = userId === 0 ? 'POST' : 'PUT';
   const mutation = useMutateData<UserCardProps>();
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const onSubmit = (data: FormData) => {
     const changedData: Partial<FormData> = {};
@@ -55,11 +56,18 @@ const UserCardEditable: React.FC<UserCardProps> = ({
       }
     }
 
+    const newUsername =
+      userId === 0 ? `${changedData.firstname}${changedData.lastname}${Date.now().toString()}` : '';
+    const params = userId === 0 ? { username: newUsername, ...changedData } : changedData;
+
     mutation.mutate(
-      { endpoint, method, params: changedData },
+      { endpoint, method, params },
       {
         onSuccess: () => {
-          router.navigate({ to: `/contacts/${username}` });
+          queryClient.invalidateQueries({
+            queryKey: [`/api/contact/${username || newUsername}`],
+          });
+          router.navigate({ to: `/contacts/${username || newUsername}` });
         },
         onError: error => {
           alert(`Error: ${error.message}`);
@@ -97,7 +105,6 @@ const UserCardEditable: React.FC<UserCardProps> = ({
           <div className="flex p4 gap-2 flex-row-reverse">
             <button
               type="submit"
-              // onClick={onEdit}
               className="text-sm text-white bg-blue-500 hover:bg-blue-600 px-4 py-1 rounded-md"
             >
               Save

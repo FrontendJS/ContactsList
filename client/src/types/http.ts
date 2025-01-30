@@ -4,7 +4,7 @@ export type HttpParams = Record<string, unknown>;
 export type FetchDataParams = {
   endpoint: string;
   method?: HttpMethod;
-  params?: HttpParams;
+  params?: HttpParams | FormData;
   baseURL?: string;
 };
 
@@ -17,5 +17,11 @@ export type UseMutationParams = {
   endpoint: string;
   method: HttpMethod;
   params?: HttpParams;
+  baseURL?: string;
+};
+
+export type UseUploadParams = {
+  endpoint: string;
+  file: File;
   baseURL?: string;
 };

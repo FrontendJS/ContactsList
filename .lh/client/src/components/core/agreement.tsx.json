@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client/src/components/core/agreement.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1738277352219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1738277352219,
+            "name": "Commit-0",
+            "content": "import React from 'react';\n\ntype AgreementProps = {\n  title: string;\n  description: string;\n  agree: () => void;\n  cancel: () => void;\n  \n};\n\nconst Agreement: React.FC<AgreementProps> = ({ title, description, agree, cancel }) => {\n  return (\n    <div className=\"fixed inset-0 flex items-center justify-center bg-black bg-opacity-50\">\n      <div className=\"bg-white rounded-lg shadow-lg p-6 w-96\">\n        <h2 className=\"text-xl font-bold mb-4\">{title}</h2>\n        <p className=\"mb-4\">{description}</p>\n        <button\n          onClick={agree}\n          className=\"w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600\"\n        >\n          agree\n        </button>\n        <button\n          onClick={cancel}\n          className=\"w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600\"\n        >\n          cancel\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Agreement;\n"
+        }
+    ]
+}

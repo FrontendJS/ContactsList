@@ -17,7 +17,7 @@ const Navigation: React.FC = () => {
     queryClient.invalidateQueries({
       queryKey: [endpoint],
     });
-  }, [location]);
+  }, [location, searchTerm]);
 
   return (
     <nav className="w-72 p-4 bg-white border-r h-screen">

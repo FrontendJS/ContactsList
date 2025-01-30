@@ -1,5 +1,11 @@
 import { useMutation, UseMutationResult, useQuery } from '@tanstack/react-query';
-import { HttpParams, FetchDataParams, UseMutationParams } from '../types/http';
+import {
+  HttpParams,
+  FetchDataParams,
+  UseMutationParams,
+  UseUploadParams,
+  HttpMethod,
+} from '../types/http';
 
 const fetchRequest = async <T>({
   endpoint,
@@ -57,5 +63,16 @@ export const useMutateData = <T>(): UseMutationResult<T, Error, UseMutationParam
   return useMutation<T, Error, UseMutationParams>({
     mutationFn: ({ endpoint, method, params, baseURL }: UseMutationParams) =>
       fetchRequest<T>({ endpoint, method, params, baseURL }),
+  });
+};
+
+export const useUpload = <T>(): UseMutationResult<T, Error, UseUploadParams> => {
+  return useMutation<T, Error, UseUploadParams>({
+    mutationFn: async ({ endpoint, file, baseURL }: UseUploadParams) => {
+      const params = new FormData();
+      params.append('image', file);
+      const method: HttpMethod = 'POST';
+      return fetchRequest<T>({ endpoint, method, params, baseURL });
+    },
   });
 };

@@ -10,7 +10,8 @@ export const Route = createFileRoute('/contacts/$contactsUsername/edit')({
 });
 
 function EditContactComponent() {
-  const { contactsUsername } = Route.useParams();
+  const routeParams = Route.useParams();
+  const contactsUsername = routeParams.contactsUsername || '';
   const endpoint = `/api/contact/${contactsUsername}`;
   const { data, isLoading, isError, error } = useGetData<User>(endpoint);
 

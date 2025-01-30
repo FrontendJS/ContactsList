@@ -14,14 +14,6 @@ function ContactComponent() {
   const { contactsUsername } = Route.useParams();
   const endpoint = `/api/contact/${contactsUsername}`;
   const { data, isLoading, isError, error } = useGetData<User>(endpoint);
-  const queryClient = useQueryClient();
-  const location = useLocation();
-
-  React.useEffect(() => {
-    queryClient.invalidateQueries({
-      queryKey: [endpoint],
-    });
-  }, [location]);
 
   return (
     <div>

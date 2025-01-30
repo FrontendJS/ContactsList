@@ -53,7 +53,7 @@ app.get('/api/contact/:username', (req, res) => {
 app.post('/api/items', (req, res) => {
   const newItem = req.body;
   newItem.id = data.length ? Math.max(...data.map(i => i.id)) + 1 : 1;
-  data.push(newItem);
+  data.unshift(newItem);
   //fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
   
   res.status(201).json(newItem);
@@ -61,9 +61,6 @@ app.post('/api/items', (req, res) => {
 
 app.put('/api/items/:id', (req, res) => {
   const itemIndex = data.findIndex(i => i.id === parseInt(req.params.id));
-
-  console.log(data[itemIndex]);
-
   
   if (itemIndex !== -1) {
     const updatedItem = req.body;
@@ -74,9 +71,8 @@ app.put('/api/items/:id', (req, res) => {
       }
     }
 
-    // updatedItem.id = data[itemIndex].id;
+    //updatedItem.id = data[itemIndex].id;
     //data[itemIndex] = updatedItem;
-
     //fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
 
     console.log(updatedItem)
@@ -88,14 +84,11 @@ app.put('/api/items/:id', (req, res) => {
 });
 
 app.delete('/api/items/:id', (req, res) => {
-
-
   const itemIndex = data.findIndex(i => i.id === parseInt(req.params.id));
   if (itemIndex !== -1) {
     data.splice(itemIndex, 1);
     //fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
-    res.json({"userId": req.params.id});
-    res.status(204).send();
+    res.json({userId: req.params.id});
   } else {
     res.status(404).send('Item not found');
   }
