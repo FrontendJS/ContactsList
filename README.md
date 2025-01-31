@@ -1,7 +1,7 @@
 # Web App Documentation
 
 ## Overview
-ContactsList web application consisting of a React frontend and a Node.js backend. The application uses a JSON file as its database.
+MVP ContactsList as a contact management interface. Consisting of a React client and Express.js server parts. The application uses a JSON file as database.
 
 ## Technologies Used
 
