@@ -65,9 +65,22 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
 │   ├── src
 │   │   ├── components
 │   │   │   ├── core
+│   │   │   │   ├── agreement.tsx
+│   │   │   │   ├── dataLoader.tsx
+│   │   │   ├── navigation.tsx
+│   │   │   ├── searchBar.tsx
+│   │   │   ├── userCard.tsx
+│   │   │   ├── userCardEditable.tsx
 │   │   ├── hooks
-│   │   ├── routes
+│   │   │   ├── useDebounce.tsx
+│   │   │   ├── useFetchData.tsx
+│   │   ├── routes 
 │   │   │   ├── contacts
+│   │   │   │   ├── $contactsUsername
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── edit.tsx
+│   │   │   │   ├── index.tsx
+
 │   │   ├── types
 │   │   ├── main.tsx
 │   │   └── index.css
