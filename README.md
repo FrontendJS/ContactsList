@@ -83,6 +83,8 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
 │   │   │   ├── _root.tsx
 │   │   │   ├── index.tsx
 │   │   ├── types
+│   │   │   ├── http.ts
+│   │   │   ├── user.ts
 │   │   ├── main.tsx
 │   │   └── index.css
 │   ├── .env
