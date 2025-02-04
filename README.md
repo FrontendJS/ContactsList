@@ -56,7 +56,7 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
    ```sh
    npm run dev
    ```
-   The frontend should now be accessible at `http://localhost:5173`.
+   The frontend should now be accessible at `http://localhost:3001`.
 
 ## Project Structure
 ```
