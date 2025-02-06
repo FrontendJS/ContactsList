@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { UserCardProps } from '../types/user';
 import { HttpMethod } from '../types/http';
-import { Link, useLocation, useRouter } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
 import Modal from './core/modal';
 import Agreement from './core/agreement';
 import { useMutateData } from '../hooks/useFetchData';
-import { useQueryClient } from '@tanstack/react-query';
 
 const UserCard: React.FC<UserCardProps> = ({
   userId,

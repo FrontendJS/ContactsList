@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { createFileRoute } from '@tanstack/react-router';
-import UserCardEditable from '../../components/userCardEditable';
+import { createRoute } from '@tanstack/react-router';
+import UserCardEditable from '@/components/userCardEditable';
+import { Route as RootRoute } from '@/routes/__root';
 
-export const Route = createFileRoute('/contacts/')({
+export const Route = createRoute({
+  path: '/contacts',
   component: AddContactComponent,
+  getParentRoute: () => RootRoute,
 });
 
 function AddContactComponent() {

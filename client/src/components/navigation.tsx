@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
-import { useGetData } from '../hooks/useFetchData';
-import DataLoader from './core/dataLoader';
-import { User } from '../types/user';
-import SearchBar from './searchBar';
+import { useGetData } from '@/hooks/useFetchData';
+import DataLoader from '@/components/core/dataLoader';
+import { User } from '@/types/user';
+import SearchBar from '@/components/searchBar';
 import { useQueryClient } from '@tanstack/react-query';
 
 const Navigation: React.FC = () => {

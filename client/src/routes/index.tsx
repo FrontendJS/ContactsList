@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { createFileRoute } from '@tanstack/react-router';
+import { createRoute } from '@tanstack/react-router';
+import { Route as RootRoute } from '@/routes/__root';
 
-export const Route = createFileRoute('/')({
+export const Route = createRoute({
+  path: '/',
   component: HomeComponent,
+  getParentRoute: () => RootRoute,
 });
 
 function HomeComponent() {

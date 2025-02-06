@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
-import Navigation from '../components/navigation';
+import Navigation from '@/components/navigation';
 
 export const Route = createRootRoute({
   component: RootComponent,

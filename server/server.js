@@ -35,7 +35,6 @@ app.get('/api/items/:id', (req, res) => {
   const item = data.find(i => i.id === parseInt(req.params.id));
   if (item) {
     res.json(item);
-    console.log(JSON)
   } else {
     res.status(404).send('Item not found');
   }
@@ -74,8 +73,6 @@ app.put('/api/items/:id', (req, res) => {
     //updatedItem.id = data[itemIndex].id;
     //data[itemIndex] = updatedItem;
     //fs.writeFileSync(dataFile, JSON.stringify(data, null, 2));
-
-    console.log(updatedItem)
     
     res.json(updatedItem);
   } else {

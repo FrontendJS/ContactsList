@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { createFileRoute } from '@tanstack/react-router';
-import DataLoader from '../../../components/core/dataLoader';
-import { useGetData } from '../../../hooks/useFetchData';
-import { User } from '../../../types/user';
-import UserCardEditable from '../../../components/userCardEditable';
+import { createRoute } from '@tanstack/react-router';
+import DataLoader from '@/components/core/dataLoader';
+import { useGetData } from '@/hooks/useFetchData';
+import { User } from '@/types/user';
+import UserCardEditable from '@/components/userCardEditable';
+import { Route as RootRoute } from '@/routes/__root';
 
-export const Route = createFileRoute('/contacts/$contactsUsername/edit')({
+export const Route = createRoute({
+  path: '/contacts/$contactsUsername/edit',
   component: EditContactComponent,
+  getParentRoute: () => RootRoute,
 });
 
 function EditContactComponent() {
