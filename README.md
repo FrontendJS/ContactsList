@@ -86,6 +86,8 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
 │   │   │   ├── http.ts
 │   │   │   ├── user.ts
 │   │   ├── main.tsx
+│   │   ├── router.ts
+│   │   ├── routeTree.ts
 │   │   └── index.css
 │   ├── .env
 │   ├── .gitignore
