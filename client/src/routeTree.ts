@@ -6,5 +6,7 @@ import { Route as ContactsByUsernameEdit } from '@/routes/contacts/$contactsUser
 
 export const routeTree = rootRoute.addChildren([
   Index,
-  ContactsIndex.addChildren([ContactsByUsernameIndex, ContactsByUsernameEdit]),
+  ContactsIndex,
+  ContactsByUsernameIndex,
+  ContactsByUsernameEdit,
 ]);
