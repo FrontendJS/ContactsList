@@ -56,7 +56,7 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
    ```sh
    npm run dev
    ```
-   The frontend should now be accessible at `http://localhost:5173`.
+   The frontend should now be accessible at `http://localhost:3001`.
 
 ## Project Structure
 ```
@@ -64,10 +64,27 @@ Warning: don't expect a full backend. Server.js is just to show the frontend app
 │── client (React frontend)
 │   ├── src
 │   │   ├── components
-│   │   ├── pages
-│   │   ├── routes
-│   │   ├── services
-│   │   ├── App.tsx
+│   │   │   ├── core
+│   │   │   │   ├── agreement.tsx
+│   │   │   │   ├── dataLoader.tsx
+│   │   │   ├── navigation.tsx
+│   │   │   ├── searchBar.tsx
+│   │   │   ├── userCard.tsx
+│   │   │   ├── userCardEditable.tsx
+│   │   ├── hooks
+│   │   │   ├── useDebounce.tsx
+│   │   │   ├── useFetchData.tsx
+│   │   ├── routes 
+│   │   │   ├── contacts
+│   │   │   │   ├── $contactsUsername
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── edit.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   ├── _root.tsx
+│   │   │   ├── index.tsx
+│   │   ├── types
+│   │   │   ├── http.ts
+│   │   │   ├── user.ts
 │   │   ├── main.tsx
 │   │   └── index.css
 │   ├── .env
