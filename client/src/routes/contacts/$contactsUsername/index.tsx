@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { createFileRoute, useLocation } from '@tanstack/react-router';
-import UserCard from '../../../components/userCard';
-import DataLoader from '../../../components/core/dataLoader';
-import { useGetData } from '../../../hooks/useFetchData';
-import { User } from '../../../types/user';
-import { useQueryClient } from '@tanstack/react-query';
+import { createRoute } from '@tanstack/react-router';
+import UserCard from '@/components/userCard';
+import DataLoader from '@/components/core/dataLoader';
+import { useGetData } from '@/hooks/useFetchData';
+import { User } from '@/types/user';
+import { Route as RootRoute } from '@/routes/__root';
 
-export const Route = createFileRoute('/contacts/$contactsUsername/')({
+export const Route = createRoute({
+  path: '/contacts/$contactsUsername/',
   component: ContactComponent,
+  getParentRoute: () => RootRoute,
 });
 
 function ContactComponent() {
